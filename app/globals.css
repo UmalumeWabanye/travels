@@ -1,16 +1,16 @@
 @import "tailwindcss";
 
 :root {
-  --background: #03131d;
-  --foreground: #eefaff;
-  --surface: #f5fbff;
-  --surface-deep: #072332;
-  --accent-sunset: #ff9f1c;
-  --accent-ocean: #00b4d8;
-  --accent-forest: #34c759;
+  --background: #041a27;
+  --foreground: #f4fcff;
+  --surface: #0a3146;
+  --surface-deep: #07273a;
+  --accent-sunset: #ff8a00;
+  --accent-ocean: #20c4f4;
+  --accent-forest: #3acb7d;
   --accent-berry: #ff4d6d;
-  --border-strong: rgba(238, 250, 255, 0.28);
-  --border-soft: rgba(238, 250, 255, 0.12);
+  --border-strong: rgba(244, 252, 255, 0.35);
+  --border-soft: rgba(244, 252, 255, 0.15);
 }
 
 @theme inline {
@@ -21,29 +21,15 @@
   --font-nav: var(--font-nav);
 }
 
-.light {
-  --background: #f3f9fc;
-  --foreground: #082335;
-  --surface-deep: #d8ecf8;
-  --border-strong: rgba(8, 35, 53, 0.28);
-  --border-soft: rgba(8, 35, 53, 0.12);
-}
-
 body {
   background:
-    radial-gradient(circle at 12% 14%, rgba(0, 180, 216, 0.25), transparent 35%),
-    radial-gradient(circle at 85% 70%, rgba(255, 159, 28, 0.2), transparent 40%),
-    linear-gradient(180deg, #02121a 0%, #031f2f 40%, #041726 100%);
+    radial-gradient(circle at 12% 14%, rgba(32, 196, 244, 0.3), transparent 35%),
+    radial-gradient(circle at 88% 72%, rgba(255, 138, 0, 0.24), transparent 42%),
+    radial-gradient(circle at 36% 88%, rgba(58, 203, 125, 0.12), transparent 36%),
+    linear-gradient(180deg, #03141f 0%, #052335 46%, #072d43 100%);
   color: var(--foreground);
   font-family: var(--font-geist-sans), sans-serif;
   text-rendering: optimizeLegibility;
-}
-
-.light body {
-  background:
-    radial-gradient(circle at 12% 14%, rgba(0, 180, 216, 0.16), transparent 35%),
-    radial-gradient(circle at 85% 70%, rgba(255, 159, 28, 0.14), transparent 40%),
-    linear-gradient(180deg, #f3f9fc 0%, #e9f5fb 40%, #dff0f9 100%);
 }
 
 * {
@@ -51,9 +37,6 @@ body {
   scrollbar-color: rgba(255, 255, 255, 0.35) transparent;
 }
 
-.light * {
-  scrollbar-color: rgba(0, 0, 0, 0.3) transparent;
-}
 
 :focus-visible {
   outline: 2px solid var(--accent-ocean);
@@ -62,16 +45,9 @@ body {
 
 .cinematic-panel {
   background:
-    radial-gradient(circle at 15% 10%, rgba(0, 180, 216, 0.16), transparent 36%),
-    radial-gradient(circle at 80% 80%, rgba(255, 159, 28, 0.18), transparent 42%),
-    rgba(5, 26, 38, 0.8);
-}
-
-.light .cinematic-panel {
-  background:
-    radial-gradient(circle at 15% 10%, rgba(0, 180, 216, 0.14), transparent 36%),
-    radial-gradient(circle at 80% 80%, rgba(255, 159, 28, 0.14), transparent 42%),
-    rgba(255, 255, 255, 0.82);
+    radial-gradient(circle at 15% 10%, rgba(32, 196, 244, 0.24), transparent 36%),
+    radial-gradient(circle at 80% 80%, rgba(255, 138, 0, 0.24), transparent 42%),
+    rgba(7, 33, 49, 0.9);
 }
 
 .adventure-surface {

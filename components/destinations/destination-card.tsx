@@ -3,6 +3,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
+import { getUnsplashImage } from "@/lib/unsplash";
 import type { Destination } from "@/types/travel";
 
 const previewReels = [
@@ -15,6 +16,7 @@ const previewReels = [
 export function DestinationCard({ destination }: { destination: Destination }) {
   const [active, setActive] = useState(false);
   const reel = previewReels[destination.id.length % previewReels.length];
+  const cardImage = getUnsplashImage(`destination-card-${destination.slug}`, 1200, 900);
 
   return (
     <Link
@@ -25,7 +27,7 @@ export function DestinationCard({ destination }: { destination: Destination }) {
     >
       <div className="relative h-64 w-full overflow-hidden">
         <Image
-          src={destination.heroImage}
+          src={cardImage}
           alt={destination.title}
           width={1200}
           height={900}

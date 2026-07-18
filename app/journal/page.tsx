@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import { travelStories } from "@/data/travel-data";
+import { getUnsplashImage } from "@/lib/unsplash";
 
 export const metadata: Metadata = {
   title: "Journal",
@@ -15,9 +16,15 @@ export default function JournalPage() {
         <p className="mt-4 max-w-3xl text-zinc-300">Editorial stories blending practical travel intelligence with documentary-style visual narratives.</p>
 
         <div className="mt-10 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-          {travelStories.map((story) => (
+          {travelStories.map((story, index) => (
             <article key={story.id} className="overflow-hidden rounded-2xl border border-[var(--border-soft)] bg-white/5">
-              <Image src={story.coverImage} alt={story.title} width={900} height={700} className="h-56 w-full object-cover" />
+              <Image
+                src={getUnsplashImage(`journal-page-${story.id}-${index}`, 900, 700)}
+                alt={story.title}
+                width={900}
+                height={700}
+                className="h-56 w-full object-cover"
+              />
               <div className="p-5">
                 <p className="text-xs uppercase tracking-[0.2em] text-zinc-400">{story.category} · {story.readTime}</p>
                 <h2 className="mt-2 text-xl">{story.title}</h2>

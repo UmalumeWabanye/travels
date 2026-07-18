@@ -1,6 +1,5 @@
 "use client";
 
-import { ThemeProvider } from "next-themes";
 import Lenis from "lenis";
 import { useEffect } from "react";
 import { CustomCursor } from "@/components/interactions/custom-cursor";
@@ -30,9 +29,9 @@ export function Providers({ children }: { children: React.ReactNode }) {
   }, []);
 
   return (
-    <ThemeProvider attribute="class" defaultTheme="dark" enableSystem>
+    <>
       <CustomCursor />
       {children}
-    </ThemeProvider>
+    </>
   );
 }

@@ -2,6 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { destinations } from "@/data/travel-data";
 import { Badge } from "@/components/ui/badge";
+import { getUnsplashImage } from "@/lib/unsplash";
 
 export function FeaturedJourneys() {
   const featured = destinations.filter((item) => item.featured).slice(0, 6);
@@ -20,20 +21,20 @@ export function FeaturedJourneys() {
         </div>
 
         <div className="mt-10 grid gap-6 md:grid-cols-2 xl:grid-cols-3">
-          {featured.map((destination) => (
+          {featured.map((destination, index) => (
             <Link
               href={`/destinations/${destination.slug}`}
               key={destination.id}
-              className="group relative overflow-hidden rounded-2xl border border-[var(--border-soft)]"
+              className="group relative overflow-hidden rounded-3xl border border-[var(--border-strong)] bg-[#0b2435]/50"
             >
               <Image
-                src={destination.heroImage}
+                src={getUnsplashImage(`featured-${destination.slug}-${index}`, 900, 1100)}
                 alt={destination.title}
                 width={900}
                 height={1100}
                 className="h-[24rem] w-full object-cover transition duration-500 group-hover:scale-105"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-[#041924]/90 via-[#041924]/30 to-transparent p-6">
+              <div className="absolute inset-0 bg-gradient-to-t from-[#032536]/95 via-[#032536]/36 to-transparent p-6">
                 <Badge>{destination.category}</Badge>
                 <p className="mt-40 text-2xl font-semibold">{destination.city}</p>
                 <p className="mt-1 text-sm text-zinc-200">{destination.subtitle}</p>

@@ -6,6 +6,7 @@ import { BookingForm } from "@/components/destinations/booking-form";
 import { DestinationCard } from "@/components/destinations/destination-card";
 import { ImageStackTimeline } from "@/components/destinations/image-stack-timeline";
 import { destinations, faqs } from "@/data/travel-data";
+import { getUnsplashGallery, getUnsplashImage } from "@/lib/unsplash";
 
 type Props = {
   params: Promise<{ slug: string }>;
@@ -42,11 +43,13 @@ export default async function DestinationDetailPage({ params }: Props) {
   const related = destinations
     .filter((item) => item.category === destination.category && item.slug !== destination.slug)
     .slice(0, 3);
+  const heroImage = getUnsplashImage(`destination-hero-${destination.slug}`, 1800, 1100);
+  const gallery = getUnsplashGallery(`destination-gallery-${destination.slug}`, 5);
 
   return (
     <article className="text-white">
       <header className="relative h-[70vh] overflow-hidden">
-        <Image src={destination.heroImage} alt={destination.title} fill className="object-cover" priority />
+        <Image src={heroImage} alt={destination.title} fill className="object-cover" priority />
         <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/30 to-transparent" />
         <div className="absolute bottom-10 left-0 right-0 mx-auto max-w-7xl px-6 md:px-10">
           <p className="text-xs uppercase tracking-[0.2em] text-zinc-300">{destination.country}</p>
@@ -74,7 +77,7 @@ export default async function DestinationDetailPage({ params }: Props) {
 
           <h3 className="mt-10 text-2xl">Gallery</h3>
           <div className="mt-4 grid gap-4 md:grid-cols-2">
-            {destination.gallery.map((image, index) => (
+            {gallery.map((image, index) => (
               <Image
                 key={`${destination.id}-${index}`}
                 src={image}
@@ -86,7 +89,7 @@ export default async function DestinationDetailPage({ params }: Props) {
             ))}
           </div>
 
-          <ImageStackTimeline images={destination.gallery} />
+          <ImageStackTimeline images={gallery} />
 
           <h3 className="mt-10 text-2xl">FAQ</h3>
           <ul className="mt-4 space-y-3">
