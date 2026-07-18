@@ -1,0 +1,60 @@
+"use client";
+
+import Link from "next/link";
+import { usePathname } from "next/navigation";
+import { Menu } from "lucide-react";
+import { ThemeToggle } from "@/components/ui/theme-toggle";
+import { cn } from "@/lib/utils";
+
+const links = [
+  { href: "/", label: "Home" },
+  { href: "/destinations", label: "Destinations" },
+  { href: "/experiences", label: "Experiences" },
+  { href: "/journal", label: "Journal" },
+  { href: "/about", label: "About" },
+  { href: "/contact", label: "Contact" },
+];
+
+export function Navbar() {
+  const pathname = usePathname();
+
+  return (
+    <header className="fixed inset-x-0 top-0 z-50 border-b border-white/10 bg-black/35 backdrop-blur-lg">
+      <nav className="mx-auto flex h-16 w-full max-w-7xl items-center justify-between px-6 md:px-10" aria-label="Primary navigation">
+        <Link href="/" className="font-[var(--font-geist-sans)] text-sm font-semibold uppercase tracking-[0.3em] text-white">
+          Aether Travel
+        </Link>
+
+        <ul className="hidden items-center gap-6 md:flex">
+          {links.map((link) => {
+            const isActive = pathname === link.href;
+            return (
+              <li key={link.href}>
+                <Link
+                  href={link.href}
+                  className={cn(
+                    "text-xs uppercase tracking-[0.2em] text-zinc-300 transition hover:text-white",
+                    isActive && "text-white",
+                  )}
+                >
+                  {link.label}
+                </Link>
+              </li>
+            );
+          })}
+        </ul>
+
+        <div className="flex items-center gap-3">
+          <ThemeToggle />
+          <button
+            className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-white/20 bg-white/10 text-white md:hidden"
+            aria-label="Open menu"
+            type="button"
+          >
+            <Menu size={18} />
+          </button>
+        </div>
+      </nav>
+    </header>
+  );
+}
