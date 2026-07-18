@@ -1,6 +1,8 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
+import { useEffect, useRef } from "react";
 import { motion, useReducedMotion } from "framer-motion";
 import { ArrowDown, Compass, PlayCircle } from "lucide-react";
 import { MagneticButton } from "@/components/interactions/magnetic-button";
@@ -9,21 +11,42 @@ import { motionTiming } from "@/lib/motion";
 
 export function HeroSection() {
   const reduceMotion = useReducedMotion();
+  const videoRef = useRef<HTMLVideoElement | null>(null);
+
+  useEffect(() => {
+    if (!videoRef.current) return;
+
+    // Keep motion gentle so content remains the focus.
+    videoRef.current.playbackRate = 0.78;
+  }, []);
 
   return (
     <section className="relative isolate min-h-[92vh] overflow-hidden text-white">
-      <video
-        autoPlay
-        muted
-        loop
-        playsInline
-        className="absolute inset-0 h-full w-full object-cover"
-        aria-label="Aerial footage of mountains and ocean"
-      >
-        <source src="https://cdn.coverr.co/videos/coverr-flying-over-mountains-1579/1080p.mp4" type="video/mp4" />
-      </video>
+      {reduceMotion ? (
+        <Image
+          src="https://images.unsplash.com/photo-1469474968028-56623f02e42e?auto=format&fit=crop&w=1920&q=80"
+          alt="Aerial landscape with mountains and ocean"
+          fill
+          priority
+          className="object-cover"
+        />
+      ) : (
+        <video
+          ref={videoRef}
+          autoPlay
+          muted
+          loop
+          playsInline
+          preload="metadata"
+          poster="https://images.unsplash.com/photo-1469474968028-56623f02e42e?auto=format&fit=crop&w=1920&q=80"
+          className="absolute inset-0 h-full w-full scale-[1.03] object-cover"
+          aria-label="Aerial footage of mountains and ocean"
+        >
+          <source src="https://videos.pexels.com/video-files/3129957/3129957-hd_1920_1080_25fps.mp4" type="video/mp4" />
+        </video>
+      )}
 
-      <div className="absolute inset-0 bg-black/45" />
+      <div className="absolute inset-0 bg-black/52" />
 
       <motion.div className="relative mx-auto flex min-h-[92vh] max-w-7xl flex-col justify-end px-6 pb-20 pt-28 md:px-10">
         <motion.p
