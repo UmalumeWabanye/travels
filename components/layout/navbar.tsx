@@ -19,9 +19,9 @@ export function Navbar() {
   const pathname = usePathname();
 
   return (
-    <header className="fixed inset-x-0 top-0 z-50 border-b border-white/10 bg-black/35 backdrop-blur-lg">
+    <header className="fixed inset-x-0 top-0 z-50 border-b border-[var(--border-soft)] bg-[#041924]/65 backdrop-blur-lg">
       <nav className="mx-auto flex h-16 w-full max-w-7xl items-center justify-between px-6 md:px-10" aria-label="Primary navigation">
-        <Link href="/" className="font-[var(--font-geist-sans)] text-sm font-semibold uppercase tracking-[0.3em] text-white">
+        <Link href="/" className="font-[var(--font-nav)] text-sm font-semibold uppercase tracking-[0.35em] text-white">
           Aether Travel
         </Link>
 
@@ -33,7 +33,7 @@ export function Navbar() {
                 <Link
                   href={link.href}
                   className={cn(
-                    "text-xs uppercase tracking-[0.2em] text-zinc-300 transition hover:text-white",
+                    "font-[var(--font-nav)] text-xs uppercase tracking-[0.2em] text-zinc-200 transition hover:text-[var(--accent-sunset)]",
                     isActive && "text-white",
                   )}
                 >

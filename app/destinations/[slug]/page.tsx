@@ -4,6 +4,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { BookingForm } from "@/components/destinations/booking-form";
 import { DestinationCard } from "@/components/destinations/destination-card";
+import { ImageStackTimeline } from "@/components/destinations/image-stack-timeline";
 import { destinations, faqs } from "@/data/travel-data";
 
 type Props = {
@@ -43,7 +44,7 @@ export default async function DestinationDetailPage({ params }: Props) {
     .slice(0, 3);
 
   return (
-    <article className="bg-[#050608] text-white">
+    <article className="text-white">
       <header className="relative h-[70vh] overflow-hidden">
         <Image src={destination.heroImage} alt={destination.title} fill className="object-cover" priority />
         <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/30 to-transparent" />
@@ -84,6 +85,8 @@ export default async function DestinationDetailPage({ params }: Props) {
               />
             ))}
           </div>
+
+          <ImageStackTimeline images={destination.gallery} />
 
           <h3 className="mt-10 text-2xl">FAQ</h3>
           <ul className="mt-4 space-y-3">

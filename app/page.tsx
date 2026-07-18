@@ -3,6 +3,7 @@ import { DesignEthos } from "@/components/home/design-ethos";
 import { DestinationSearch } from "@/components/home/destination-search";
 import { FeaturedJourneys } from "@/components/home/featured-journeys";
 import { HeroSection } from "@/components/home/hero-section";
+import { HorizontalGallery } from "@/components/home/horizontal-gallery";
 import { JournalPreview } from "@/components/home/journal-preview";
 import { NewsletterSection } from "@/components/home/newsletter-section";
 import { StoryParallax } from "@/components/home/story-parallax";
@@ -15,6 +16,7 @@ export default function Home() {
       <DestinationSearch />
       <FeaturedJourneys />
       <StoryParallax />
+      <HorizontalGallery />
       <DesignEthos />
       <CollectionsGrid />
       <TestimonialsCarousel />

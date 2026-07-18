@@ -22,7 +22,7 @@ const experiences = [
 
 export default function ExperiencesPage() {
   return (
-    <section className="bg-[#080b11] px-6 py-16 text-white md:px-10">
+    <section className="px-6 py-16 text-white md:px-10">
       <div className="mx-auto max-w-7xl">
         <h1 className="font-[var(--font-playfair)] text-5xl md:text-7xl">Experiences</h1>
         <p className="mt-4 max-w-2xl text-zinc-300">Curated travel formats built around emotions, pace, and deep place-based discovery.</p>
@@ -34,7 +34,7 @@ export default function ExperiencesPage() {
               <Link
                 href={`/destinations/${sample.slug}`}
                 key={experience}
-                className="rounded-2xl border border-white/10 bg-white/5 p-6 transition hover:border-white/30 hover:bg-white/10"
+                className="rounded-2xl border border-[var(--border-soft)] bg-white/5 p-6 transition hover:border-[var(--border-strong)] hover:bg-white/10"
               >
                 <p className="text-2xl">{experience}</p>
                 <p className="mt-2 text-sm text-zinc-300">Explore cinematic itineraries inspired by {experience.toLowerCase()} travel.</p>

@@ -1,13 +1,16 @@
 @import "tailwindcss";
 
 :root {
-  --background: #090909;
-  --foreground: #f8f8f8;
-  --surface: #f8f8f8;
-  --slate-blue: #243447;
-  --accent-sunset: #ff7a18;
-  --accent-ocean: #3ba7ff;
-  --accent-forest: #2d6a4f;
+  --background: #03131d;
+  --foreground: #eefaff;
+  --surface: #f5fbff;
+  --surface-deep: #072332;
+  --accent-sunset: #ff9f1c;
+  --accent-ocean: #00b4d8;
+  --accent-forest: #34c759;
+  --accent-berry: #ff4d6d;
+  --border-strong: rgba(238, 250, 255, 0.28);
+  --border-soft: rgba(238, 250, 255, 0.12);
 }
 
 @theme inline {
@@ -15,18 +18,32 @@
   --color-foreground: var(--foreground);
   --font-serif: var(--font-playfair);
   --font-sans: var(--font-geist-sans);
+  --font-nav: var(--font-nav);
 }
 
 .light {
-  --background: #f8f8f8;
-  --foreground: #090909;
+  --background: #f3f9fc;
+  --foreground: #082335;
+  --surface-deep: #d8ecf8;
+  --border-strong: rgba(8, 35, 53, 0.28);
+  --border-soft: rgba(8, 35, 53, 0.12);
 }
 
 body {
-  background: var(--background);
+  background:
+    radial-gradient(circle at 12% 14%, rgba(0, 180, 216, 0.25), transparent 35%),
+    radial-gradient(circle at 85% 70%, rgba(255, 159, 28, 0.2), transparent 40%),
+    linear-gradient(180deg, #02121a 0%, #031f2f 40%, #041726 100%);
   color: var(--foreground);
   font-family: var(--font-geist-sans), sans-serif;
   text-rendering: optimizeLegibility;
+}
+
+.light body {
+  background:
+    radial-gradient(circle at 12% 14%, rgba(0, 180, 216, 0.16), transparent 35%),
+    radial-gradient(circle at 85% 70%, rgba(255, 159, 28, 0.14), transparent 40%),
+    linear-gradient(180deg, #f3f9fc 0%, #e9f5fb 40%, #dff0f9 100%);
 }
 
 * {
@@ -45,16 +62,72 @@ body {
 
 .cinematic-panel {
   background:
-    radial-gradient(circle at 15% 10%, rgba(59, 167, 255, 0.12), transparent 36%),
-    radial-gradient(circle at 80% 80%, rgba(255, 122, 24, 0.12), transparent 42%),
-    rgba(10, 10, 10, 0.8);
+    radial-gradient(circle at 15% 10%, rgba(0, 180, 216, 0.16), transparent 36%),
+    radial-gradient(circle at 80% 80%, rgba(255, 159, 28, 0.18), transparent 42%),
+    rgba(5, 26, 38, 0.8);
 }
 
 .light .cinematic-panel {
   background:
-    radial-gradient(circle at 15% 10%, rgba(59, 167, 255, 0.1), transparent 36%),
-    radial-gradient(circle at 80% 80%, rgba(255, 122, 24, 0.1), transparent 42%),
-    rgba(255, 255, 255, 0.88);
+    radial-gradient(circle at 15% 10%, rgba(0, 180, 216, 0.14), transparent 36%),
+    radial-gradient(circle at 80% 80%, rgba(255, 159, 28, 0.14), transparent 42%),
+    rgba(255, 255, 255, 0.82);
+}
+
+.adventure-surface {
+  background: linear-gradient(135deg, rgba(7, 35, 50, 0.86), rgba(5, 24, 36, 0.9));
+  border: 1px solid var(--border-soft);
+}
+
+.glow-ring {
+  box-shadow:
+    0 0 0 1px var(--border-soft),
+    0 16px 40px rgba(0, 180, 216, 0.15),
+    0 10px 32px rgba(255, 159, 28, 0.12);
+}
+
+.cursor-dot {
+  pointer-events: none;
+  position: fixed;
+  z-index: 100;
+  width: 14px;
+  height: 14px;
+  border-radius: 9999px;
+  mix-blend-mode: screen;
+  background: radial-gradient(circle, rgba(255, 159, 28, 1) 0%, rgba(0, 180, 216, 0.7) 85%);
+  transform: translate(-50%, -50%);
+}
+
+.cursor-ring {
+  pointer-events: none;
+  position: fixed;
+  z-index: 99;
+  width: 34px;
+  height: 34px;
+  border-radius: 9999px;
+  border: 1px solid rgba(238, 250, 255, 0.5);
+  transform: translate(-50%, -50%);
+  transition: width 160ms ease, height 160ms ease, border-color 160ms ease;
+}
+
+.interactive-target:hover ~ .cursor-ring {
+  width: 54px;
+  height: 54px;
+}
+
+.section-rhythm-wide {
+  padding-top: clamp(6rem, 8vw, 9rem);
+  padding-bottom: clamp(6rem, 8vw, 9rem);
+}
+
+.section-rhythm-regular {
+  padding-top: clamp(5rem, 6.5vw, 7.5rem);
+  padding-bottom: clamp(5rem, 6.5vw, 7.5rem);
+}
+
+.section-rhythm-tight {
+  padding-top: clamp(4rem, 5.5vw, 6rem);
+  padding-bottom: clamp(4rem, 5.5vw, 6rem);
 }
 
 @media (prefers-reduced-motion: reduce) {
