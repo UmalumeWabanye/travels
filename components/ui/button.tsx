@@ -9,10 +9,10 @@ const buttonVariants = cva(
     variants: {
       variant: {
         default:
-          "bg-[linear-gradient(135deg,var(--accent-sunset),var(--accent-ocean))] text-[#03131d] hover:brightness-110 focus-visible:ring-[var(--accent-sunset)]",
+          "bg-[var(--accent-sunset)] text-white hover:bg-[#e00b41] focus-visible:ring-[var(--accent-sunset)]",
         outline:
-          "border border-[var(--border-strong)] bg-transparent text-white hover:bg-white/10 focus-visible:ring-white",
-        ghost: "text-white hover:bg-white/10 focus-visible:ring-white",
+          "border border-[var(--border-strong)] bg-white text-[var(--foreground)] hover:bg-[var(--surface)] focus-visible:ring-[var(--foreground)]",
+        ghost: "text-[var(--foreground)] hover:bg-[var(--surface)] focus-visible:ring-[var(--foreground)]",
       },
       size: {
         default: "h-11 px-6 font-[var(--font-nav)] tracking-[0.08em] uppercase",

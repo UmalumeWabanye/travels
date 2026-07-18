@@ -27,7 +27,7 @@ export function DestinationSearch() {
   }, [query]);
 
   return (
-    <section className="section-rhythm-tight px-6 text-white md:px-10">
+    <section className="section-rhythm-tight bg-[var(--surface)] px-6 text-[var(--foreground)] md:px-10">
       <div className="mx-auto max-w-6xl">
         <h2 className="font-[var(--font-playfair)] text-3xl md:text-5xl">Find your next chapter</h2>
         <div className="relative mt-6 max-w-2xl">
@@ -46,11 +46,11 @@ export function DestinationSearch() {
             <Link
               key={destination.id}
               href={`/destinations/${destination.slug}`}
-              className="group rounded-xl border border-[var(--border-soft)] bg-white/5 p-4 transition hover:border-[var(--border-strong)] hover:bg-white/10"
+              className="group rounded-xl border border-[var(--border-soft)] bg-white p-4 transition hover:border-[var(--border-strong)] hover:bg-[var(--surface)]"
             >
-              <p className="text-xs uppercase tracking-[0.18em] text-zinc-400">{destination.country}</p>
-              <p className="mt-2 text-xl text-white">{destination.city}</p>
-              <p className="mt-2 text-sm text-zinc-300">From ${destination.price.toLocaleString()}</p>
+              <p className="text-xs uppercase tracking-[0.18em] text-zinc-500">{destination.country}</p>
+              <p className="mt-2 text-xl text-[var(--foreground)]">{destination.city}</p>
+              <p className="mt-2 text-sm text-zinc-600">From ${destination.price.toLocaleString()}</p>
               <p className="mt-2 text-xs text-[var(--accent-ocean)] opacity-0 transition group-hover:opacity-100">View destination</p>
             </Link>
           ))}

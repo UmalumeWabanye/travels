@@ -9,12 +9,11 @@ export function NewsletterSection() {
   const [submitted, setSubmitted] = useState(false);
 
   return (
-    <section className="section-rhythm-tight relative overflow-hidden px-6 text-white md:px-10">
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_15%_20%,rgba(0,180,216,0.24),transparent_40%),radial-gradient(circle_at_85%_70%,rgba(255,159,28,0.26),transparent_45%)]" />
+    <section className="section-rhythm-tight relative overflow-hidden bg-[var(--surface)] px-6 text-[var(--foreground)] md:px-10">
       <div className="relative mx-auto flex max-w-3xl flex-col items-center text-center">
         <p className="text-xs uppercase tracking-[0.25em] text-zinc-500">Newsletter</p>
         <h2 className="mt-3 font-[var(--font-playfair)] text-4xl md:text-5xl">Receive new destination chapters</h2>
-        <p className="mt-4 text-zinc-300">Monthly guides, luxury itineraries, and visual travel essays straight to your inbox.</p>
+        <p className="mt-4 text-zinc-600">Monthly guides, luxury itineraries, and visual travel essays straight to your inbox.</p>
 
         <form
           className="mt-8 flex w-full max-w-xl flex-col gap-3 sm:flex-row"

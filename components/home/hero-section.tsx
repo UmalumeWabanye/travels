@@ -23,7 +23,7 @@ export function HeroSection() {
         <source src="https://cdn.coverr.co/videos/coverr-flying-over-mountains-1579/1080p.mp4" type="video/mp4" />
       </video>
 
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_20%,rgba(0,180,216,0.35),transparent_42%),radial-gradient(circle_at_75%_35%,rgba(255,159,28,0.32),transparent_40%),linear-gradient(to_bottom,rgba(0,0,0,0.12),rgba(2,20,30,0.78))]" />
+      <div className="absolute inset-0 bg-black/45" />
 
       <motion.div className="relative mx-auto flex min-h-[92vh] max-w-7xl flex-col justify-end px-6 pb-20 pt-28 md:px-10">
         <motion.p

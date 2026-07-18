@@ -47,10 +47,10 @@ export default async function DestinationDetailPage({ params }: Props) {
   const gallery = getUnsplashGallery(`destination-gallery-${destination.slug}`, 5);
 
   return (
-    <article className="text-white">
+    <article className="bg-[var(--background)] text-[var(--foreground)]">
       <header className="relative h-[70vh] overflow-hidden">
         <Image src={heroImage} alt={destination.title} fill className="object-cover" priority />
-        <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/30 to-transparent" />
+        <div className="absolute inset-0 bg-black/40" />
         <div className="absolute bottom-10 left-0 right-0 mx-auto max-w-7xl px-6 md:px-10">
           <p className="text-xs uppercase tracking-[0.2em] text-zinc-300">{destination.country}</p>
           <h1 className="mt-3 max-w-3xl font-[var(--font-playfair)] text-5xl md:text-7xl">{destination.city}</h1>
@@ -67,7 +67,7 @@ export default async function DestinationDetailPage({ params }: Props) {
           <h3 className="mt-10 text-2xl">Timeline</h3>
           <ul className="mt-4 space-y-4">
             {destination.timeline.map((step) => (
-              <li key={step.day} className="rounded-xl border border-white/10 bg-white/5 p-4">
+              <li key={step.day} className="rounded-xl border border-[var(--border-soft)] bg-white p-4">
                 <p className="text-sm uppercase tracking-[0.2em] text-zinc-400">Day {step.day}</p>
                 <p className="mt-2 text-xl">{step.title}</p>
                 <p className="mt-1 text-sm text-zinc-300">{step.description}</p>
@@ -94,7 +94,7 @@ export default async function DestinationDetailPage({ params }: Props) {
           <h3 className="mt-10 text-2xl">FAQ</h3>
           <ul className="mt-4 space-y-3">
             {faqs.slice(0, 5).map((faq) => (
-              <li key={faq.id} className="rounded-xl border border-white/10 bg-white/5 p-4">
+              <li key={faq.id} className="rounded-xl border border-[var(--border-soft)] bg-white p-4">
                 <p className="text-base">{faq.question}</p>
                 <p className="mt-2 text-sm text-zinc-300">{faq.answer}</p>
               </li>
@@ -103,7 +103,7 @@ export default async function DestinationDetailPage({ params }: Props) {
         </div>
 
         <aside className="space-y-6">
-          <div className="rounded-2xl border border-white/10 bg-white/5 p-6">
+          <div className="rounded-2xl border border-[var(--border-soft)] bg-white p-6">
             <p className="text-sm text-zinc-400">Starting from</p>
             <p className="mt-2 text-3xl font-semibold">${destination.price.toLocaleString()}</p>
             <p className="mt-2 text-sm text-zinc-300">{destination.duration} · {destination.rating} rating</p>

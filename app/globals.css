@@ -1,16 +1,16 @@
 @import "tailwindcss";
 
 :root {
-  --background: #041a27;
-  --foreground: #f4fcff;
-  --surface: #0a3146;
-  --surface-deep: #07273a;
-  --accent-sunset: #ff8a00;
-  --accent-ocean: #20c4f4;
-  --accent-forest: #3acb7d;
-  --accent-berry: #ff4d6d;
-  --border-strong: rgba(244, 252, 255, 0.35);
-  --border-soft: rgba(244, 252, 255, 0.15);
+  --background: #ffffff;
+  --foreground: #222222;
+  --surface: #f7f7f7;
+  --surface-deep: #f2f2f2;
+  --accent-sunset: #ff385c;
+  --accent-ocean: #428bff;
+  --accent-forest: #460479;
+  --accent-berry: #92174d;
+  --border-strong: #c1c1c1;
+  --border-soft: #ebebeb;
 }
 
 @theme inline {
@@ -22,11 +22,7 @@
 }
 
 body {
-  background:
-    radial-gradient(circle at 12% 14%, rgba(32, 196, 244, 0.3), transparent 35%),
-    radial-gradient(circle at 88% 72%, rgba(255, 138, 0, 0.24), transparent 42%),
-    radial-gradient(circle at 36% 88%, rgba(58, 203, 125, 0.12), transparent 36%),
-    linear-gradient(180deg, #03141f 0%, #052335 46%, #072d43 100%);
+  background: var(--background);
   color: var(--foreground);
   font-family: var(--font-geist-sans), sans-serif;
   text-rendering: optimizeLegibility;
@@ -34,7 +30,7 @@ body {
 
 * {
   scrollbar-width: thin;
-  scrollbar-color: rgba(255, 255, 255, 0.35) transparent;
+  scrollbar-color: #c1c1c1 transparent;
 }
 
 
@@ -44,22 +40,18 @@ body {
 }
 
 .cinematic-panel {
-  background:
-    radial-gradient(circle at 15% 10%, rgba(32, 196, 244, 0.24), transparent 36%),
-    radial-gradient(circle at 80% 80%, rgba(255, 138, 0, 0.24), transparent 42%),
-    rgba(7, 33, 49, 0.9);
+  background: #f7f7f7;
 }
 
 .adventure-surface {
-  background: linear-gradient(135deg, rgba(7, 35, 50, 0.86), rgba(5, 24, 36, 0.9));
+  background: #ffffff;
   border: 1px solid var(--border-soft);
 }
 
 .glow-ring {
   box-shadow:
     0 0 0 1px var(--border-soft),
-    0 16px 40px rgba(0, 180, 216, 0.15),
-    0 10px 32px rgba(255, 159, 28, 0.12);
+    0 10px 30px rgba(34, 34, 34, 0.08);
 }
 
 .cursor-dot {
@@ -69,8 +61,8 @@ body {
   width: 14px;
   height: 14px;
   border-radius: 9999px;
-  mix-blend-mode: screen;
-  background: radial-gradient(circle, rgba(255, 159, 28, 1) 0%, rgba(0, 180, 216, 0.7) 85%);
+  mix-blend-mode: normal;
+  background: var(--accent-sunset);
   transform: translate(-50%, -50%);
 }
 
@@ -81,7 +73,7 @@ body {
   width: 34px;
   height: 34px;
   border-radius: 9999px;
-  border: 1px solid rgba(238, 250, 255, 0.5);
+  border: 1px solid var(--border-strong);
   transform: translate(-50%, -50%);
   transition: width 160ms ease, height 160ms ease, border-color 160ms ease;
 }
@@ -104,6 +96,18 @@ body {
 .section-rhythm-tight {
   padding-top: clamp(4rem, 5.5vw, 6rem);
   padding-bottom: clamp(4rem, 5.5vw, 6rem);
+}
+
+.vivid-card {
+  border: 1px solid var(--border-strong);
+  background: #ffffff;
+  box-shadow:
+    0 8px 26px rgba(34, 34, 34, 0.07),
+    0 0 0 1px rgba(0, 0, 0, 0.02) inset;
+}
+
+.vivid-overlay {
+  background: rgba(34, 34, 34, 0.4);
 }
 
 @media (prefers-reduced-motion: reduce) {

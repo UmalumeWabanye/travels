@@ -25,46 +25,49 @@ export function HorizontalGallery() {
 
     gsap.registerPlugin(ScrollTrigger);
 
-    const distance = trackRef.current.scrollWidth - sectionRef.current.offsetWidth;
+    const ctx = gsap.context(() => {
+      const distance = trackRef.current?.scrollWidth && sectionRef.current
+        ? trackRef.current.scrollWidth - sectionRef.current.offsetWidth
+        : 0;
 
-    if (distance <= 0) {
-      return;
-    }
+      if (distance <= 0 || !trackRef.current || !sectionRef.current) {
+        return;
+      }
 
-    const tween = gsap.to(trackRef.current, {
-      x: -distance,
-      ease: "power1.inOut",
-      scrollTrigger: {
-        trigger: sectionRef.current,
-        start: "top+=24 top",
-        end: `+=${distance * 1.1}`,
-        pin: true,
-        scrub: motionTiming.scroll.galleryScrub,
-      },
-    });
+      gsap.to(trackRef.current, {
+        x: -distance,
+        ease: "power1.inOut",
+        scrollTrigger: {
+          trigger: sectionRef.current,
+          start: "top+=24 top",
+          end: `+=${distance * 1.1}`,
+          pin: true,
+          scrub: motionTiming.scroll.galleryScrub,
+        },
+      });
+    }, sectionRef);
 
     return () => {
-      tween.kill();
-      ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
+      ctx.revert();
     };
   }, []);
 
   return (
-    <section ref={sectionRef} className="section-rhythm-regular relative overflow-hidden bg-transparent px-6 text-white md:px-10">
+    <section ref={sectionRef} className="section-rhythm-regular relative overflow-hidden bg-[var(--surface)] px-6 text-[var(--foreground)] md:px-10">
       <div className="mx-auto max-w-7xl">
-        <p className="text-xs uppercase tracking-[0.24em] text-zinc-300">Parallax Gallery</p>
+        <p className="text-xs uppercase tracking-[0.24em] text-zinc-500">Parallax Gallery</p>
         <h2 className="mt-3 font-[var(--font-playfair)] text-4xl md:text-6xl">Landscapes in motion</h2>
       </div>
       <div ref={trackRef} className="mt-12 flex w-max gap-8 pl-6 md:pl-10">
         {frames.map((frame, index) => (
           <article
             key={frame}
-            className="relative h-[28rem] w-[24rem] overflow-hidden rounded-3xl border border-[var(--border-soft)] bg-black/20"
+            className="relative h-[28rem] w-[24rem] overflow-hidden rounded-3xl border border-[var(--border-soft)] bg-white"
             style={{ marginTop: index % 2 === 0 ? "0.25rem" : "1.2rem" }}
           >
             <Image src={frame} alt={`Travel frame ${index + 1}`} fill className="object-cover" />
-            <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/70 to-transparent p-5">
-              <p className="font-[var(--font-nav)] text-xs uppercase tracking-[0.2em] text-zinc-200">Shot {index + 1}</p>
+            <div className="absolute inset-x-0 bottom-0 bg-black/45 p-5">
+              <p className="font-[var(--font-nav)] text-xs uppercase tracking-[0.2em] text-white">Shot {index + 1}</p>
             </div>
           </article>
         ))}

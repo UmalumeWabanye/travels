@@ -21,7 +21,7 @@ export function DestinationCard({ destination }: { destination: Destination }) {
   return (
     <Link
       href={`/destinations/${destination.slug}`}
-      className="group overflow-hidden rounded-2xl border border-[var(--border-soft)] bg-white/5 glow-ring"
+      className="vivid-card group overflow-hidden rounded-2xl"
       onMouseEnter={() => setActive(true)}
       onMouseLeave={() => setActive(false)}
     >
@@ -47,10 +47,10 @@ export function DestinationCard({ destination }: { destination: Destination }) {
         </video>
       </div>
       <div className="p-5">
-        <p className="text-xs uppercase tracking-[0.2em] text-zinc-400">{destination.country}</p>
-        <h3 className="mt-2 text-2xl text-white">{destination.city}</h3>
-        <p className="mt-2 text-sm text-zinc-300">{destination.subtitle}</p>
-        <div className="mt-4 flex items-center justify-between text-sm text-zinc-200">
+        <p className="text-xs uppercase tracking-[0.2em] text-zinc-500">{destination.country}</p>
+        <h3 className="mt-2 text-2xl text-[var(--foreground)]">{destination.city}</h3>
+        <p className="mt-2 text-sm text-zinc-600">{destination.subtitle}</p>
+        <div className="mt-4 flex items-center justify-between text-sm text-zinc-700">
           <span>{destination.duration}</span>
           <span>From ${destination.price.toLocaleString()}</span>
         </div>
