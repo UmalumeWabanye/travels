@@ -67,7 +67,7 @@ export function BookingForm({ defaultDestination = "" }: { defaultDestination?: 
       <Button type="submit" className="justify-self-start">
         Submit Request
       </Button>
-      {isSubmitSuccessful ? <p className="text-sm text-[var(--accent-ocean)]">Request received. Our team will contact you shortly.</p> : null}
+      {isSubmitSuccessful ? <p className="text-sm text-(--accent-ocean)">Request received. Our team will contact you shortly.</p> : null}
     </form>
   );
 }

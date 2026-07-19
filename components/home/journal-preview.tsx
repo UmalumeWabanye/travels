@@ -5,11 +5,11 @@ import { getUnsplashImage } from "@/lib/unsplash";
 
 export function JournalPreview() {
   return (
-    <section className="section-rhythm-regular bg-[var(--surface)] px-6 text-[var(--foreground)] md:px-10">
+    <section className="section-rhythm-regular bg-(--surface) px-6 text-foreground md:px-10">
       <div className="mx-auto max-w-7xl">
         <div className="flex items-end justify-between">
-          <h2 className="font-[var(--font-playfair)] text-4xl md:text-5xl">From the Journal</h2>
-          <Link href="/journal" className="text-xs uppercase tracking-[0.2em] text-zinc-500 hover:text-[var(--accent-sunset)]">
+          <h2 className="font-(--font-playfair) text-4xl md:text-5xl">From the Journal</h2>
+          <Link href="/journal" className="text-xs uppercase tracking-[0.2em] text-zinc-500 hover:text-(--accent-sunset)">
             View all
           </Link>
         </div>
@@ -25,7 +25,7 @@ export function JournalPreview() {
               />
               <div className="p-5">
                 <p className="text-xs uppercase tracking-[0.18em] text-zinc-500">{story.category}</p>
-                <h3 className="mt-3 text-xl text-[var(--foreground)]">{story.title}</h3>
+                <h3 className="mt-3 text-xl text-foreground">{story.title}</h3>
                 <p className="mt-2 text-sm text-zinc-600">{story.excerpt}</p>
               </div>
             </article>

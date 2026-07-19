@@ -9,15 +9,15 @@ const buttonVariants = cva(
     variants: {
       variant: {
         default:
-          "bg-[var(--accent-sunset)] text-white hover:bg-[#e00b41] focus-visible:ring-[var(--accent-sunset)]",
+          "bg-(--accent-sunset) text-white hover:bg-[#e00b41] focus-visible:ring-(--accent-sunset)",
         outline:
-          "border border-[var(--border-strong)] bg-white text-[var(--foreground)] hover:bg-[var(--surface)] focus-visible:ring-[var(--foreground)]",
-        ghost: "text-[var(--foreground)] hover:bg-[var(--surface)] focus-visible:ring-[var(--foreground)]",
+          "border border-(--border-strong) bg-white text-foreground hover:bg-(--surface) focus-visible:ring-(--foreground)",
+        ghost: "text-foreground hover:bg-(--surface) focus-visible:ring-(--foreground)",
       },
       size: {
-        default: "h-11 px-6 font-[var(--font-nav)] tracking-[0.08em] uppercase",
+        default: "h-11 px-6 font-(--font-nav) tracking-[0.08em] uppercase",
         sm: "h-9 px-4",
-        lg: "h-12 px-8 text-base font-[var(--font-nav)] tracking-[0.08em] uppercase",
+        lg: "h-12 px-8 text-base font-(--font-nav) tracking-[0.08em] uppercase",
       },
     },
     defaultVariants: {

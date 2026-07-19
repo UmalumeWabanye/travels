@@ -45,10 +45,10 @@ export function DestinationExplorer() {
   }, [activeCategory]);
 
   return (
-    <section className="bg-[var(--surface)] px-6 py-16 text-[var(--foreground)] md:px-10">
+    <section className="bg-(--surface) px-6 py-16 text-foreground md:px-10">
       <div className="mx-auto max-w-7xl">
         <p className="text-xs uppercase tracking-[0.24em] text-zinc-500">Curated Places</p>
-        <h1 className="mt-3 font-[var(--font-playfair)] text-5xl md:text-7xl">Destinations</h1>
+        <h1 className="mt-3 font-(--font-playfair) text-5xl md:text-7xl">Destinations</h1>
         <p className="mt-4 max-w-3xl text-zinc-200">
           Explore cinematic routes by category, then inspect markers on our interactive map preview.
         </p>
@@ -60,8 +60,8 @@ export function DestinationExplorer() {
             className={cn(
               "rounded-full border px-4 py-2 text-xs uppercase tracking-[0.16em] transition",
               activeCategory === "All"
-                ? "border-transparent bg-[var(--accent-sunset)] text-white"
-                : "border-[var(--border-soft)] bg-white text-zinc-700 hover:bg-[var(--surface)]",
+                ? "border-transparent bg-(--accent-sunset) text-white"
+                : "border-(--border-soft) bg-white text-zinc-700 hover:bg-(--surface)",
             )}
           >
             All
@@ -74,8 +74,8 @@ export function DestinationExplorer() {
               className={cn(
                 "rounded-full border px-4 py-2 text-xs uppercase tracking-[0.16em] transition",
                 activeCategory === category
-                  ? "border-transparent bg-[var(--accent-ocean)] text-white"
-                  : "border-[var(--border-soft)] bg-white text-zinc-700 hover:bg-[var(--surface)]",
+                  ? "border-transparent bg-(--accent-ocean) text-white"
+                  : "border-(--border-soft) bg-white text-zinc-700 hover:bg-(--surface)",
               )}
             >
               {category}
@@ -85,8 +85,8 @@ export function DestinationExplorer() {
 
         <div className="mt-10 grid gap-6 lg:grid-cols-[1.2fr_1fr]">
           <div className="adventure-surface glow-ring relative overflow-hidden rounded-3xl p-6">
-            <p className="font-[var(--font-nav)] text-xs uppercase tracking-[0.24em] text-zinc-500">Map Preview</p>
-            <div className="relative mt-5 h-[24rem] overflow-hidden rounded-2xl border border-[var(--border-soft)] bg-[var(--surface)]">
+            <p className="font-(--font-nav) text-xs uppercase tracking-[0.24em] text-zinc-500">Map Preview</p>
+            <div className="relative mt-5 h-[24rem] overflow-hidden rounded-2xl border border-(--border-soft) bg-(--surface)">
               <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1524661135-423995f22d0b?auto=format&fit=crop&w=1400&q=80')] bg-cover bg-center opacity-25" />
               <div className="absolute inset-0">
                 {filtered.map((destination) => {
@@ -94,7 +94,7 @@ export function DestinationExplorer() {
                   return (
                     <span
                       key={`marker-${destination.id}`}
-                      className="absolute h-3 w-3 -translate-x-1/2 -translate-y-1/2 rounded-full bg-[var(--accent-sunset)] shadow-[0_0_0_6px_rgba(255,56,92,0.2)]"
+                      className="absolute h-3 w-3 -translate-x-1/2 -translate-y-1/2 rounded-full bg-(--accent-sunset) shadow-[0_0_0_6px_rgba(255,56,92,0.2)]"
                       style={position}
                       aria-label={`${destination.city} marker`}
                     />
@@ -108,10 +108,10 @@ export function DestinationExplorer() {
           </div>
 
           <div className="adventure-surface rounded-3xl p-6">
-            <p className="font-[var(--font-nav)] text-xs uppercase tracking-[0.24em] text-zinc-500">Quick Picks</p>
+            <p className="font-(--font-nav) text-xs uppercase tracking-[0.24em] text-zinc-500">Quick Picks</p>
             <ul className="mt-4 space-y-3">
               {filtered.slice(0, 6).map((destination) => (
-                <li key={`pick-${destination.id}`} className="rounded-xl border border-[var(--border-soft)] bg-white p-4">
+                <li key={`pick-${destination.id}`} className="rounded-xl border border-(--border-soft) bg-white p-4">
                   <p className="text-sm text-zinc-600">{destination.country}</p>
                   <p className="mt-1 text-lg">{destination.city}</p>
                   <p className="mt-1 text-xs uppercase tracking-[0.15em] text-zinc-500">{destination.category}</p>

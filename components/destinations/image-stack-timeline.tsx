@@ -20,7 +20,7 @@ export function ImageStackTimeline({ images }: ImageStackTimelineProps) {
         {images.slice(0, 3).map((image, index) => (
           <motion.div
             key={image}
-            className="absolute left-0 top-0 h-[18rem] w-[72%] overflow-hidden rounded-2xl border border-[var(--border-soft)]"
+            className="absolute left-0 top-0 h-[18rem] w-[72%] overflow-hidden rounded-2xl border border-(--border-soft)"
             style={{
               y,
               x: reduceMotion ? 0 : index * 54,

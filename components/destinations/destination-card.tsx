@@ -48,7 +48,7 @@ export function DestinationCard({ destination }: { destination: Destination }) {
       </div>
       <div className="p-5">
         <p className="text-xs uppercase tracking-[0.2em] text-zinc-500">{destination.country}</p>
-        <h3 className="mt-2 text-2xl text-[var(--foreground)]">{destination.city}</h3>
+        <h3 className="mt-2 text-2xl text-foreground">{destination.city}</h3>
         <p className="mt-2 text-sm text-zinc-600">{destination.subtitle}</p>
         <div className="mt-4 flex items-center justify-between text-sm text-zinc-700">
           <span>{destination.duration}</span>

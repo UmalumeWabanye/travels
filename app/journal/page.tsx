@@ -10,9 +10,9 @@ export const metadata: Metadata = {
 
 export default function JournalPage() {
   return (
-    <section className="bg-[var(--surface)] px-6 py-16 text-[var(--foreground)] md:px-10">
+    <section className="bg-(--surface) px-6 py-16 text-foreground md:px-10">
       <div className="mx-auto max-w-7xl">
-        <h1 className="font-[var(--font-playfair)] text-5xl md:text-7xl">Journal</h1>
+        <h1 className="font-(--font-playfair) text-5xl md:text-7xl">Journal</h1>
         <p className="mt-4 max-w-3xl text-zinc-300">Editorial stories blending practical travel intelligence with documentary-style visual narratives.</p>
 
         <div className="mt-10 grid gap-6 md:grid-cols-2 lg:grid-cols-3">

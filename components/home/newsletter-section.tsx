@@ -9,10 +9,10 @@ export function NewsletterSection() {
   const [submitted, setSubmitted] = useState(false);
 
   return (
-    <section className="section-rhythm-tight relative overflow-hidden bg-[var(--surface)] px-6 text-[var(--foreground)] md:px-10">
+    <section className="section-rhythm-tight relative overflow-hidden bg-(--surface) px-6 text-foreground md:px-10">
       <div className="relative mx-auto flex max-w-3xl flex-col items-center text-center">
         <p className="text-xs uppercase tracking-[0.25em] text-zinc-500">Newsletter</p>
-        <h2 className="mt-3 font-[var(--font-playfair)] text-4xl md:text-5xl">Receive new destination chapters</h2>
+        <h2 className="mt-3 font-(--font-playfair) text-4xl md:text-5xl">Receive new destination chapters</h2>
         <p className="mt-4 text-zinc-600">Monthly guides, luxury itineraries, and visual travel essays straight to your inbox.</p>
 
         <form
@@ -33,7 +33,7 @@ export function NewsletterSection() {
           />
           <Button type="submit">Subscribe</Button>
         </form>
-        {submitted ? <p className="mt-3 text-sm text-[var(--accent-ocean)]">You are on the list.</p> : null}
+        {submitted ? <p className="mt-3 text-sm text-(--accent-ocean)">You are on the list.</p> : null}
       </div>
     </section>
   );

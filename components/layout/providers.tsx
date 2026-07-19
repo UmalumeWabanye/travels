@@ -1,8 +1,13 @@
 "use client";
 
 import Lenis from "lenis";
+import dynamic from "next/dynamic";
 import { useEffect } from "react";
-import { CustomCursor } from "@/components/interactions/custom-cursor";
+
+const CustomCursor = dynamic(
+  () => import("@/components/interactions/custom-cursor").then((mod) => mod.CustomCursor),
+  { ssr: false },
+);
 
 export function Providers({ children }: { children: React.ReactNode }) {
   useEffect(() => {

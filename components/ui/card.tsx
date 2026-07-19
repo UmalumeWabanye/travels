@@ -6,7 +6,7 @@ const Card = forwardRef<HTMLDivElement, HTMLAttributes<HTMLDivElement>>(
     <div
       ref={ref}
       className={cn(
-        "rounded-2xl border border-[var(--border-soft)] bg-white text-[var(--foreground)]",
+        "rounded-2xl border border-(--border-soft) bg-white text-foreground",
         className,
       )}
       {...props}
@@ -22,7 +22,7 @@ const CardHeader = forwardRef<HTMLDivElement, HTMLAttributes<HTMLDivElement>>(
 
 const CardTitle = forwardRef<HTMLDivElement, HTMLAttributes<HTMLDivElement>>(
   ({ className, ...props }, ref) => (
-    <div ref={ref} className={cn("font-[var(--font-playfair)] text-2xl", className)} {...props} />
+    <div ref={ref} className={cn("font-(--font-playfair) text-2xl", className)} {...props} />
   ),
 );
 

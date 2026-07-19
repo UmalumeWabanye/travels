@@ -5,17 +5,13 @@ import { useEffect, useState } from "react";
 export function CustomCursor() {
   const [position, setPosition] = useState({ x: -100, y: -100 });
   const [enabled] = useState(() => {
-    if (typeof window === "undefined") {
-      return false;
-    }
-
     const coarsePointer = window.matchMedia("(pointer: coarse)").matches;
     const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
     return !coarsePointer && !reducedMotion;
   });
 
   useEffect(() => {
-    if (window.matchMedia("(pointer: coarse)").matches || window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+    if (!enabled) {
       return;
     }
 
@@ -28,7 +24,7 @@ export function CustomCursor() {
     return () => {
       window.removeEventListener("mousemove", onMove);
     };
-  }, []);
+  }, [enabled]);
 
   if (!enabled) {
     return null;
